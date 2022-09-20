@@ -32,7 +32,7 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('reservas/listado', [App\Http\Controllers\ReservasController::class, 'listado'])->name('reservas.listado');
-    // Route::get('reservar/nueva', [App\Http\Controllers\ReservasController::class, 'nueva'])->name('reservar.nueva');
+    Route::get('reserva/nueva', [App\Http\Controllers\ReservasController::class, 'nueva'])->name('reserva.nueva');
     // Route::post('reservar/nueva', [App\Http\Controllers\ReservasController::class, 'nueva'])->name('reservar.nueva');
     Route::post('reservar/guardar', [App\Http\Controllers\ReservasController::class, 'guardar'])->name('reservar.guardar');
     Route::get('reservar/ver/{id}', [App\Http\Controllers\ReservasController::class, 'ver'])->name('reservar.ver');

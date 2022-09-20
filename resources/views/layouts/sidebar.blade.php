@@ -29,7 +29,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link" href="{{ route('reservas.listado') }}"><i
                                     class="ti-control-record"></i>Lstado</a></li>
-                        <li class="nav-item"><a class="nav-link" href="apps-chat"><i
+                        <li class="nav-item"><a class="nav-link" href="{{ route('reserva.nueva') }}"><i
                                     class="ti-control-record"></i>Nueva</a></li>
                         
                         <li class="nav-item"><a class="nav-link" href="apps-calendar"><i

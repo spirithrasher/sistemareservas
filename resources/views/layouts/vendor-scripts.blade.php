@@ -1,4 +1,5 @@
     <script src="{{ URL::asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/jquery-ui.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/metismenu.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/waves.js') }}"></script>
