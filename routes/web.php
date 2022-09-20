@@ -27,3 +27,24 @@ Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class,
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
+
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('reservas/listado', [App\Http\Controllers\ReservasController::class, 'listado'])->name('reservas.listado');
+    // Route::get('reservar/nueva', [App\Http\Controllers\ReservasController::class, 'nueva'])->name('reservar.nueva');
+    // Route::post('reservar/nueva', [App\Http\Controllers\ReservasController::class, 'nueva'])->name('reservar.nueva');
+    Route::post('reservar/guardar', [App\Http\Controllers\ReservasController::class, 'guardar'])->name('reservar.guardar');
+    Route::get('reservar/ver/{id}', [App\Http\Controllers\ReservasController::class, 'ver'])->name('reservar.ver');
+    Route::post('reservar/aprobador/{id}', [App\Http\Controllers\ReservasController::class, 'aprobador'])->name('reservar.aprobador');
+    Route::get('reservar/verbuscador/{id}', [App\Http\Controllers\ReservasController::class, 'verbuscador'])->name('reservar.verbuscador');
+
+    Route::post('insumos/select', [App\Http\Controllers\InsumosController::class, 'select'])->name('insumos.select');
+
+    Route::post('sector/select', [App\Http\Controllers\SectorController::class, 'select'])->name('sector.select');
+    
+    Route::post('horarios/horario', [App\Http\Controllers\HorariosController::class, 'horario'])->name('horarios.horario');
+
+    Route::get('calendario/ver', [App\Http\Controllers\CalendarioController::class, 'ver'])->name('calendario.ver');
+    Route::post('calendario/consulta', [App\Http\Controllers\CalendarioController::class, 'consulta'])->name('calendario.consulta');
+});
