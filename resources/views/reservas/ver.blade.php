@@ -171,9 +171,79 @@
                 </div>
             </div> <!-- end col -->
         </div>
-
+        <div class="modal fade" id="modalmensajes" tabindex="-1" aria-labelledby="modalmensajesLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalmensajesLabel">Alerta!</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closemodal" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+                </div>
+            </div>
+        </div>
     @endsection
 
 @section('script')
     <script src="{{ URL::asset('assets/js/app.js') }}"></script>
+    <script>
+    $(document).ready(function () {
+
+        $("button#btn_aprobador").click(function(){
+            var estado_solicitud = $('#estado_solicitud').val();
+            var comentario = $('#comentario_aprobador').val();
+            if(estado_solicitud == 1){
+                // alert('Debe seleccionar estado');
+                // $("#modalestadopendiente").modal('show');
+                $('.modal-body').append('<h4>Debe seleccionar el estado de la solicitud</h4>');
+                $('#modalmensajes').modal('show');
+                $("#closemodal").click(function() {        
+                    $('#estado_solicitud').focus();
+                    $('.modal-body').empty();
+                });
+            }else{
+                if(estado_solicitud==3 && comentario == ""){
+                    $('.modal-body').append('<h4>Debe ingresar un comentario</h4>');
+                    $('#modalmensajes').modal('show');
+                    $("#closemodal").click(function() {        
+                        $('#comentario').focus();
+                        $('.modal-body').empty();
+                    });
+                }else{
+                    //cerramos el modal
+                    // $('#myModal').modal('hide');
+                    //cargando
+                    $.blockUI({ message: '<img src="../img/default.gif" /> Espere un momento...' });
+                    
+                    my_data = $('#aprueba_solicitud_form').serialize();
+                    
+                    var url = "<?php echo url('reservar/aprobador').'/'.$reserva->id; ?>";
+                    console.log("TEST :::" + url);
+                    
+                    var token = "<?php echo csrf_token();?>";
+                    $.post( url, { 'estado_solicitud': $('#estado_solicitud').val(),
+                                    'comentario_aprobador': $('#comentario_aprobador').val(),
+                                    '_token': token
+                                })
+                    .done(function( data ) {
+                        $.unblockUI();
+                        //console.log(data);
+                            window.location.href = '<?php echo url("home"); ?>';
+                    })
+                    .fail(function() {
+                        alert("Fallo al momento de generar la aprobación, por favor contactese con el administrador del sistema");
+                        // location.reload(true);
+                    });
+                }
+
+            }
+        });
+    });
+</script>
+<script src="{{ URL::asset('assets/js/jquery.blockUI.js') }}"></script>
 @endsection
