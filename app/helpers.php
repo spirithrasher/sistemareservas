@@ -3,6 +3,7 @@ use App\Models\HorariosProgramados;
 use App\Models\DetalleParticipantes;
 use App\Models\Aprobadores;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 function saber_dia($nombredia) {
 	$dias = array('','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo');
@@ -53,7 +54,7 @@ function fechadesdehasta($idactividad){
 }
 
 
-function soyaprobador($user_id, $sede_id){
+function puedoaprobador($user_id, $sede_id){
 
 	$datos = Aprobadores::where('user_id','=',$user_id)
 				->where('sede_id','=',$sede_id)
@@ -65,6 +66,14 @@ function soyaprobador($user_id, $sede_id){
 	}else{
 		return false;
 	}
+}
 
-
+function soyaprobador(){
+	$datos = Aprobadores::where('user_id','=',Auth::user()->id);
+	
+	if($datos->get()->count() > 0){
+		return $datos->first();
+	}else{
+		return false;
+	}
 }

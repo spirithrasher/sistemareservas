@@ -129,8 +129,8 @@
                         <div class="card border-dark mt-3" >
                             <div class="card-header fs-4 text-white bg-info">Información para Aprobador</div>
                             <div class="card-body">
-                                @php $soyaprobador = soyaprobador(Auth::user()->id,$reserva->sede_id);@endphp
-                                @php $disabledsoyaprobador = (!$soyaprobador)?"disabled":""; @endphp
+                                @php $puedoaprobador = puedoaprobador(Auth::user()->id,$reserva->sede_id);@endphp
+                                @php $disabledsoyaprobador = (!$puedoaprobador)?"disabled":""; @endphp
                                 <form class="aprueba_solicitud_form" >  
                                     @csrf
                                     <div class="row">
@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="row mt-5">
                                         <div class="col-md-12">
-                                            @if($soyaprobador)
+                                            @if($puedoaprobador)
                                                 <button type="button" class="btn btn-primary" id="btn_aprobador" name="btn_aprobador">Confirmar Reserva</button>
                                             @endif
                                         </div>
