@@ -1,2 +1,0 @@
-@@include("topbar")
-@@include("sidebar")
