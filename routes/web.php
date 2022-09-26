@@ -45,6 +45,6 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::post('horarios/horario', [App\Http\Controllers\HorariosController::class, 'horario'])->name('horarios.horario');
 
-    Route::get('calendario/ver', [App\Http\Controllers\CalendarioController::class, 'ver'])->name('calendario.ver');
-    Route::post('calendario/consulta', [App\Http\Controllers\CalendarioController::class, 'consulta'])->name('calendario.consulta');
+    Route::get('calendario/index', [App\Http\Controllers\CalendarioController::class, 'index'])->name('calendario.index');
+
 });

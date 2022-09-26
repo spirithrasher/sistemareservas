@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('reserva.nueva') }}"><i
                                     class="ti-control-record"></i>Nueva</a></li>
                         
-                        <li class="nav-item"><a class="nav-link" href="apps-calendar"><i
+                        <li class="nav-item"><a class="nav-link" href="{{ route('calendario.index') }}"><i
                                     class="ti-control-record"></i>Calendario</a></li>
                     </ul>
                 </li>

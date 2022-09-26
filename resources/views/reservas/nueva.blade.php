@@ -285,10 +285,5 @@
 
 </script>
     <script src="{{ URL::asset('assets/js/jquery.blockUI.js') }}"></script>
-    <!-- <script src="{{ URL::asset('assets/plugins/huebee/huebee.pkgd.min.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('assets/plugins/timepicker/bootstrap-material-datetimepicker.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('assets/js/pages/jquery.forms-advanced.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('assets/js/app.js') }}"></script> -->
+    <script src="{{ URL::asset('assets/js/app.js') }}"></script>
 @endsection

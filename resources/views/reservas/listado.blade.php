@@ -81,6 +81,5 @@
     <script src="{{ URL::asset('assets/plugins/datatables/buttons.colVis.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
-    <!-- <script src="{{ URL::asset('assets/js/pages/jquery.datatable.init.js') }}"></script> -->
-    <!-- <script src="{{ URL::asset('assets/js/app.js') }}"></script> -->
+    <script src="{{ URL::asset('assets/js/app.js') }}"></script>
 @endsection
